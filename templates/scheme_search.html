@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Government Schemes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scheme_search.css') }}">
+</head>
+<body>
+
+<div class="search-container">
+
+    <div class="search-card">
+        <h2>Find Eligible Government Schemes</h2>
+        <p class="quote">
+            "Explore opportunities designed to empower and support women."
+        </p>
+
+        <form method="POST" action="{{ url_for('scheme_results') }}">
+
+            <div class="form-group">
+                <label>Education Level</label>
+                <select name="education" required>
+                    <option value="">Select Education</option>
+                    <option value="10th">10th</option>
+                    <option value="12th">12th</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="Any">Any</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Annual Income</label>
+                <input type="number" name="income" placeholder="Enter annual income" required>
+            </div>
+
+            <div class="form-group">
+                <label>Caste Category</label>
+                <select name="caste" required>
+                    <option value="">Select Category</option>
+                    <option value="General">General</option>
+                    <option value="OBC">OBC</option>
+                    <option value="SC">SC</option>
+                    <option value="ST">ST</option>
+                    <option value="All">All</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Marital Status</label>
+                <select name="marital_status" required>
+                    <option value="">Select Status</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Widow">Widow</option>
+                    <option value="Any">Any</option>
+                </select>
+            </div>
+
+            <button type="submit" class="search-btn">
+                Search Eligible Schemes
+            </button>
+
+        </form>
+
+        <p class="helpline">
+            📞 Scheme Assistance Helpline: 1800-123-4567
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>

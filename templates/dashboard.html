@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>🌸 Women Safety System</h2>
+
+        <ul>
+            <li class="active">
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('profile') }}" class="btn">Profile Changes</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('document_vault') }}">
+                    Secure Document Vault
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('safety_helpline') }}">
+                    View Safety Helplines
+                </a>
+            </li>
+        </ul>
+
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <h1>Welcome, <span>{{ name }}</span> 💗</h1>
+        </div>
+
+        <!-- 🚨 Emergency SOS Button -->
+        <div class="top-emergency">
+    <button class="emergency-btn" onclick="triggerSOS()">
+        🚨 EMERGENCY SOS
+    </button>
+</div>
+
+<p id="sosStatus"></p>
+
+        <!-- Cards -->
+        <div class="cards">
+
+            <div class="card sos">
+                <h3>Emergency Support Center</h3>
+                <p>Instant access to SOS alerts, live location sharing, and emergency contacts to ensure immediate help</p>
+
+                <a href="/emergency">
+                    <button class="view-btn">View</button>
+                </a>
+            </div>
+
+           <div class="card incident-feedback">
+
+    <h3>🚨 Incident Reporting & ⭐ Feedback</h3>
+
+    <p>
+        Report harassment, unsafe locations, suspicious activity or share
+        your feedback to improve the women safety platform.
+    </p>
+
+    <div class="card-buttons">
+
+        <a href="{{ url_for('incident_reporting') }}">
+            <button class="view-btn report-btn">🚨 Report Incident</button>
+        </a>
+
+        <a href="{{ url_for('feedback') }}">
+            <button class="view-btn feedback-btn">⭐ Give Feedback</button>
+        </a>
+
+    </div>
+
+</div>
+
+            <div class="card schemes">
+                <h3>Chatbot</h3>
+                <p>An intelligent 24/7 virtual assistant providing guidance</p>
+
+                <a href="{{ url_for('chatbot') }}">
+                    <button class="view-btn">View</button>
+                </a>
+            </div>
+
+            <div class="card recommendation">
+                <h3>Smart Support & Rights Hub</h3>
+                <p>Personalized suggestions for you.</p>
+
+                <a href="{{ url_for('scheme_search') }}">
+                    <button class="view-btn">View</button>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+function sendLocation(){
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+let lat = position.coords.latitude
+let lon = position.coords.longitude
+
+fetch("/send_location",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({lat:lat,lon:lon})
+})
+
+alert("📍 Your live location has been sent for emergency help!")
+
+})
+
+}
+
+</script>
+
+
+<!-- SOS System JavaScript -->
+<script src="{{ url_for('static', filename='js/emergency.js') }}"></script>
+
+{% endblock %}
+
+

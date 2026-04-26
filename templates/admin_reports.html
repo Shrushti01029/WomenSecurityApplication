@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_reports.css') }}">
+
+    <!-- CHART JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📊 Reports & Analytics</h1>
+
+    <!-- CHART SECTION -->
+    <div class="charts">
+
+        <!-- SCHEME CHART -->
+        <div class="chart-box">
+            <h3>Applications per Scheme</h3>
+            <canvas id="schemeChart"></canvas>
+        </div>
+
+        <!-- STATUS CHART -->
+        <div class="chart-box">
+            <h3>Application Status</h3>
+            <canvas id="statusChart"></canvas>
+        </div>
+
+        <!-- USER ACTIVITY -->
+        <div class="chart-box full-width">
+            <h3>User Activity (Applications Over Time)</h3>
+            <canvas id="userChart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // ================= SCHEME DATA =================
+    const schemeLabels = {{ scheme_data | map(attribute='scheme_name') | list | tojson }};
+    const schemeValues = {{ scheme_data | map(attribute='total') | list | tojson }};
+
+    new Chart(document.getElementById("schemeChart"), {
+        type: "bar",
+        data: {
+            labels: schemeLabels,
+            datasets: [{
+                label: "Applications",
+                data: schemeValues
+            }]
+        }
+    });
+
+    // ================= STATUS DATA =================
+    const statusLabels = {{ status_data | map(attribute='application_status') | list | tojson }};
+    const statusValues = {{ status_data | map(attribute='total') | list | tojson }};
+
+    new Chart(document.getElementById("statusChart"), {
+        type: "pie",
+        data: {
+            labels: statusLabels,
+            datasets: [{
+                data: statusValues
+            }]
+        }
+    });
+
+    // ================= USER ACTIVITY =================
+    const userDates = {{ user_activity | map(attribute='date') | list | tojson }};
+    const userCounts = {{ user_activity | map(attribute='total') | list | tojson }};
+
+    new Chart(document.getElementById("userChart"), {
+        type: "line",
+        data: {
+            labels: userDates,
+            datasets: [{
+                label: "Applications Over Time",
+                data: userCounts
+            }]
+        }
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scheme Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/schemes.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>✨ Government Scheme Recommendation</h1>
+    <p class="quote">"Government schemes are bridges to empowerment."</p>
+
+    {% for scheme in schemes %}
+    <div class="card">
+        <h2>{{ scheme.scheme_name }}</h2>
+        <p>{{ scheme.description }}</p>
+        <p><strong>Benefits:</strong> {{ scheme.benefits }}</p>
+        <p><strong>Helpline:</strong> {{ scheme.helpline }}</p>
+        <a href="/apply_form/{{ scheme.id }}" class="apply-btn">Apply Now</a>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

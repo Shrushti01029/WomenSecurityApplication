@@ -1,0 +1,51 @@
+.container {
+    padding: 30px;
+}
+
+h2 {
+    color: #ff4d88;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+th {
+    background: #ff4d88;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Track Button */
+.track-btn {
+    background: #4da6ff;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* Status */
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.status.Active {
+    background: red;
+}
+
+.status.Resolved {
+    background: green;
+}

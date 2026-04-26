@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Women Security & Scheme Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="overlay">
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Women Security & Scheme Recommendation</h1>
+        <p>Your Safety | Your Rights | Your Support</p>
+    </div>
+
+    <!-- Login Cards -->
+    <div class="cards">
+
+        <!-- User Login -->
+        <div class="card">
+            <h2>User Login</h2>
+            <form method="POST" action="/login"  autocomplete="off">
+                <label>G-mail id</label>
+                <input type="text" name="email" placeholder="Enter Your G-mail id" autocomplete="off" required>
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter password" autocomplete="new-password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <a href="#">Forgot password?</a>
+        </div>
+
+        <!-- Admin Login -->
+        <div class="card">
+            <h2>Admin Login</h2>
+            <form method="POST" action="/admin_login">
+                <label>Admin ID</label>
+                <input type="text" name="admin_id" placeholder="Enter admin ID"  autocomplete="off" required>
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter password" autocomplete="new-password" required>
+
+                <button type="submit">Admin Login</button>
+            </form>
+            <a href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        🚨 Emergency Helpline: <strong>112 | 181</strong> |
+        🔒 Your data is safe & secure |
+        📄 Privacy Policy | Terms & Conditions
+    </div>
+
+</div>
+
+</body>
+</html>

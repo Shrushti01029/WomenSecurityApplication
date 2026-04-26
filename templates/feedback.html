@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>User Feedback</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h2>Submit Feedback</h2>
+
+<form action="/submit_feedback" method="POST">
+
+<label>Rating</label>
+
+<select name="rating">
+
+<option value="5">Excellent</option>
+<option value="4">Very Good</option>
+<option value="3">Good</option>
+<option value="2">Average</option>
+<option value="1">Poor</option>
+
+</select>
+
+
+<label>Feedback Type</label>
+
+<select name="feedback_type">
+
+<option>Suggestion</option>
+<option>Complaint</option>
+<option>Feature Request</option>
+
+</select>
+
+
+<label>Your Comments</label>
+
+<textarea name="comments" placeholder="Write your feedback"></textarea>
+
+
+<button type="submit">Submit Feedback</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>SafeShe AI Chatbot</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+
+</head>
+
+<body>
+
+<div class="chat-container">
+
+<div class="chat-header">
+💬 SafeShe AI – Your 24/7 Safety Assistant
+</div>
+
+<div id="chatbox"></div>
+
+<div class="quick-buttons">
+
+<button onclick="sendQuick('SOS')">🚨 SOS</button>
+<button onclick="sendQuick('night travel safety')">🌙 Night Safety</button>
+<button onclick="sendQuick('harassment help')">⚖ Legal Help</button>
+<button onclick="sendQuick('cyber safety')">💻 Cyber Safety</button>
+
+</div>
+
+<div class="chat-input">
+
+<input id="userInput" type="text" placeholder="Type your message...">
+
+<button onclick="sendMessage()">Send</button>
+
+<button onclick="startVoice()">🎤</button>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incident Reports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_incidents.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>🚨 Incident Reports</h2>
+
+    <table>
+        <tr>
+            <th>User</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Action</th> <!-- NEW -->
+        </tr>
+
+ {% for r in reports %}
+<tr>
+    <td>{{ r[1] }}</td>
+    <td>{{ r[2] }}</td>
+    <td>{{ r[3] }}</td>
+
+    <td>
+        {% if r[4] == 'Pending' %}
+            <span style="color: orange; font-weight: bold;">{{ r[4] }}</span>
+        {% elif r[4] == 'In Progress' %}
+            <span style="color: blue; font-weight: bold;">{{ r[4] }}</span>
+        {% elif r[4] == 'Resolved' %}
+            <span style="color: green; font-weight: bold;">{{ r[4] }}</span>
+        {% else %}
+            {{ r[4] }}
+        {% endif %}
+    </td>
+
+    <td>{{ r[5] }}</td>
+
+    <td>
+        <a href="/update_incident/{{ r[0] }}/Pending">Approved</a> |
+        <a href="/delete_incident/{{ r[0] }}" onclick="return confirm('Delete this report?')">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+
+
+    </table>
+</div>
+
+</body>
+</html>

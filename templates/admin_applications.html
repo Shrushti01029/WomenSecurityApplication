@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Applications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_applications.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>📄 Scheme Applications</h2>
+
+    <table>
+        <tr>
+            <th>User</th>
+            <th>Scheme</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>DOB</th>
+            <th>Docs</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for app in applications %}
+        <tr>
+
+            <td>{{ app.scheme_name }}</td>
+            <td>{{ app.full_name }}</td>
+            <td>{{ app.email }}</td>
+            <td>{{ app.phone }}</td>
+            <td>{{ app.dob }}</td>
+
+            <!-- DOCUMENT LINKS -->
+            <td>
+                {% if app.photo %}
+                <a href="{{ url_for('static', filename='uploads/' ~ app.photo) }}" target="_blank">Photo</a><br>
+                {% endif %}
+
+                {% if app.aadhar %}
+                <a href="{{ url_for('static', filename='uploads/' ~ app.aadhar) }}" target="_blank">Aadhar</a><br>
+                {% endif %}
+
+                {% if app.income_certificate %}
+                <a href="{{ url_for('static', filename='uploads/' ~ app.income_certificate) }}" target="_blank">Income</a>
+                {% endif %}
+            </td>
+
+            <!-- STATUS -->
+            <td>
+                <span class="status {{ app.application_status }}">
+                    {{ app.application_status }}
+                </span>
+            </td>
+
+            <!-- ACTION BUTTONS -->
+            <td>
+                {% if app.application_status == 'Pending' %}
+
+                    <a href="{{ url_for('approve_application', id=app.id) }}"
+                       class="approve-btn">
+                        ✔ Approve
+                    </a>
+
+                    <a href="{{ url_for('reject_application', id=app.id) }}"
+                       class="reject-btn">
+                        ✖ Reject
+                    </a>
+
+                {% else %}
+                    <span class="done">Completed</span>
+                {% endif %}
+            </td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

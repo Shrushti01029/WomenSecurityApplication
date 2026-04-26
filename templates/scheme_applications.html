@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scheme Applications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scheme_applications.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>📋 {{ scheme_name }} Applications</h2>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr>
+
+        {% for app in applications %}
+        <tr>
+            <td>{{ app.full_name }}</td>
+            <td>{{ app.email }}</td>
+            <td>{{ app.phone }}</td>
+
+            <td>
+                {% if app.application_status == 'Pending' %}
+                    <span style="color: orange;">Pending</span>
+                {% elif app.application_status == 'Approved' %}
+                    <span style="color: green;">Approved</span>
+                {% elif app.application_status == 'Rejected' %}
+                    <span style="color: red;">Rejected</span>
+                {% else %}
+                    {{ app.application_status }}
+                {% endif %}
+            </td>
+
+            <td>{{ app.applied_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/admin/dashboard">⬅ Back to Dashboard</a>
+</div>
+
+</body>
+</html>

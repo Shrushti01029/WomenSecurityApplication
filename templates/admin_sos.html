@@ -1,0 +1,59 @@
+ <div class="section-card">
+    <h2>🚨 SOS Alerts</h2>
+    <ul>
+        <li>View Emergency Alerts</li>
+        <li>Track User Location</li>
+        <li>Respond Quickly</li>
+    </ul>
+
+    <a href="{{ url_for('admin_sos_alerts') }}" class="section-btn">
+        View Alerts →
+    </a>
+</div>
+ {% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_sos.css') }}">
+
+<div class="container">
+
+    <h2>🚨 SOS Emergency Alerts</h2>
+
+    <table>
+        <tr>
+            <th>User</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Status</th>
+        </tr>
+
+        {% for sos in alerts %}
+        <tr>
+            <td>{{ sos.full_name }}</td>
+            <td>{{ sos.phone }}</td>
+            <td>{{ sos.message }}</td>
+            <td>{{ sos.created_at }}</td>
+
+            <td>
+                <a href="https://www.google.com/maps?q={{ sos.latitude }},{{ sos.longitude }}"
+                   target="_blank"
+                   class="track-btn">
+                   📍 Track
+                </a>
+            </td>
+
+            <td>
+                <span class="status {{ sos.status }}">
+                    {{ sos.status }}
+                </span>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Incident Reporting</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/incident.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h2>Report Safety Incident</h2>
+
+<form action="/submit_report" method="POST" enctype="multipart/form-data">
+
+<label>Incident Type</label>
+
+<select name="incident_type">
+
+<option>Harassment</option>
+<option>Stalking</option>
+<option>Unsafe Area</option>
+<option>Physical Threat</option>
+<option>Other</option>
+
+</select>
+
+
+<label>Location</label>
+
+<input type="text" name="location" placeholder="Enter incident location" required>
+
+
+<label>Description</label>
+
+<textarea name="description" placeholder="Describe the incident"></textarea>
+
+
+<label>Urgency Level</label>
+
+<select name="urgency">
+
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+
+</select>
+
+
+<label>Upload Evidence (optional)</label>
+
+<input type="file" name="evidence">
+
+
+<button type="submit">Submit Report</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

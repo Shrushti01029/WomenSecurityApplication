@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-box">
+        <h1>WELCOME TO</h1>
+        <h2>Women Safety System</h2>
+
+        <p class="quote">
+            “Strong women build strong communities.  
+            Safety, dignity and equality for every woman.”
+        </p>
+
+        <div class="buttons">
+            <a href="{{ url_for('register') }}" class="btn primary">Register</a>
+            <a href="{{ url_for('login') }}" class="btn secondary">Login</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

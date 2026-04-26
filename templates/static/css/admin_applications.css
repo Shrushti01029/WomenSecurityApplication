@@ -1,0 +1,104 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+    margin: 0;
+}
+
+/* CONTAINER */
+.container {
+    width: 95%;
+    margin: 30px auto;
+}
+
+/* TITLE */
+h2 {
+    text-align: center;
+    color: #ff4d88;
+    margin-bottom: 20px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* HEADER */
+th {
+    background: #ff4d88;
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* CELLS */
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+/* ROW HOVER */
+tr:hover {
+    background: #fff0f5;
+}
+
+/* LINKS */
+a {
+    text-decoration: none;
+    color: #ff4d88;
+    font-weight: bold;
+}
+
+/* STATUS */
+.status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+}
+
+/* STATUS COLORS */
+.status.Pending {
+    background: orange;
+}
+
+.status.Approved {
+    background: green;
+}
+
+.status.Rejected {
+    background: red;
+}
+
+/* BUTTONS */
+.approve-btn {
+    background: #33cc99;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin: 2px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.reject-btn {
+    background: red;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin: 2px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+/* COMPLETED */
+.done {
+    color: green;
+    font-weight: bold;
+}

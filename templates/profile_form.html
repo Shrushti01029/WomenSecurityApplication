@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eligibility Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/schemes.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Complete Your Eligibility Profile</h2>
+
+    <form method="POST" action="/save_profile">
+
+        <input type="text" name="education" placeholder="Education" required>
+        <input type="number" name="income" placeholder="Annual Income" required>
+        <input type="text" name="caste" placeholder="Caste Category" required>
+        <input type="text" name="marital_status" placeholder="Marital Status" required>
+        <input type="number" name="age" placeholder="Age" required>
+        <input type="text" name="occupation" placeholder="Occupation" required>
+
+        <button type="submit">Save Profile</button>
+    </form>
+</div>
+
+</body>
+</html>

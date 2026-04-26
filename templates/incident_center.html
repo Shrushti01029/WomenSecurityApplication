@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Safety Support Center</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/incident_center.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Safety Support Center</h1>
+
+<p class="subtitle">
+Report safety incidents or share feedback to improve the platform.
+</p>
+
+<div class="cards">
+
+<div class="feature-card">
+
+<h2>🚨 Incident Reporting</h2>
+
+<p>
+Report harassment, unsafe locations, suspicious activity or any
+safety concern. Your report helps authorities take action quickly.
+</p>
+
+<a href="{{ url_for('incident_reporting') }}">
+<button class="btn">Report Incident</button>
+</a>
+
+</div>
+
+
+<div class="feature-card">
+
+<h2>⭐ Feedback System</h2>
+
+<p>
+Share suggestions, complaints or ideas to improve
+the women safety platform and services.
+</p>
+
+<a href="{{ url_for('feedback') }}">
+<button class="btn">Give Feedback</button>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

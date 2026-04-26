@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* BODY BACKGROUND */
+body {
+    min-height: 100vh;
+
+    /* Pink gradient overlay + background image */
+    background: linear-gradient(
+        rgba(255, 182, 193, 0.85),
+        rgba(255, 105, 180, 0.85)
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzdTP2o5CJDjDBEsvH2VSBtA55RtJa7qUQtg&s");   /* ADD IMAGE HERE */
+
+    background-size: cover;
+    background-position: center;
+    color: #8b004f;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #c2185b;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #8b004f;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff1493;
+}
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+/* CENTER BOX */
+.hero-box {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 60px;
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+    max-width: 750px;
+    box-shadow: 0 15px 40px rgba(255, 20, 147, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* TITLES */
+.hero-box h1 {
+    font-size: 22px;
+    letter-spacing: 5px;
+    color: #ff1493;
+    margin-bottom: 10px;
+}
+
+.hero-box h2 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #8b004f;
+}
+
+/* QUOTE */
+.quote {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #a0005a;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 14px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+/* PRIMARY BUTTON */
+.primary {
+    background: linear-gradient(to right, #ff1493, #ff69b4);
+    color: white;
+}
+
+.primary:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(255, 20, 147, 0.5);
+}
+
+/* SECONDARY BUTTON */
+.secondary {
+    border: 2px solid #ff1493;
+    color: #ff1493;
+}
+
+.secondary:hover {
+    background: #ff1493;
+    color: white;
+    transform: scale(1.08);
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+
+    .hero-box {
+        padding: 40px 20px;
+    }
+
+    .hero-box h2 {
+        font-size: 30px;
+    }
+
+    .navbar {
+        padding: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+}
+
+/* FLASH MESSAGE */
+.flash-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.flash {
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.flash.success {
+    background: #ff1493;
+}
+
+.flash.error {
+    background: #c2185b;
+}
+
+/* Slide animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

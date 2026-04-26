@@ -1,0 +1,145 @@
+/* ================= GLOBAL STYLES ================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9ccf, #ff4da6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 0;
+}
+
+/* ================= CONTAINER ================= */
+.search-container {
+    width: 95%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ================= CARD ================= */
+.search-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(255, 77, 166, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 20, 147, 0.45);
+}
+
+/* ================= HEADINGS ================= */
+.search-card h2, .search-card h3 {
+    text-align: center;
+    color: #e60073;
+    margin-bottom: 20px;
+}
+
+.search-card h3 {
+    margin-top: 20px;
+}
+
+/* ================= QUOTE ================= */
+.quote {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* ================= FORM ================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #ffc1e3;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #ff4da6;
+    box-shadow: 0 0 8px rgba(255, 77, 166, 0.4);
+}
+
+/* ================= BUTTONS ================= */
+.search-btn, .apply-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #ff4da6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    width: 100%;
+}
+
+.search-btn:hover, .apply-btn:hover {
+    background: #cc0066;
+    transform: scale(1.05);
+}
+
+/* ================= SCHEME CARDS ================= */
+.scheme-card {
+    background: #ffe6f0;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(255, 77, 166, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scheme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 20, 147, 0.35);
+}
+
+.scheme-card h4 {
+    margin: 0 0 8px 0;
+    color: #e60073;
+}
+
+.scheme-card p {
+    margin: 0 0 12px 0;
+    color: #555;
+}
+
+/* ================= HELPLINE ================= */
+.helpline {
+    text-align: center;
+    font-size: 13px;
+    color: #444;
+    margin-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+    .search-card {
+        padding: 25px 15px;
+    }
+
+    input, select, .search-btn, .apply-btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+}

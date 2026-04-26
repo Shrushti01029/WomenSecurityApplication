@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+
+<section class="register-section">
+
+    <div class="register-card">
+
+        <h1 class="title">Women Safety System</h1>
+
+        <p class="quote">
+            “Empowered women empower the nation.  
+            Register today and protect your tomorrow.”
+        </p>
+
+        <h2>Create Account</h2>
+
+        <form method="POST" action="/register">
+
+            <div class="form-grid">
+
+                <input type="text" name="full_name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email ID" required>
+
+                <input type="text" name="mobile" placeholder="Mobile Number" required>
+                <input type="number" name="age" placeholder="Age" required>
+
+                <select name="state" required>
+                    <option value="">Select State</option>
+                    <option>Telangana</option>
+                    <option>Maharashtra</option>
+                </select>
+
+                <input type="text" name="district" placeholder="District" required>
+
+                <select name="education" required>
+                    <option value="">Education Level</option>
+                    <option>10th</option>
+                    <option>12th</option>
+                    <option>Graduate</option>
+                </select>
+
+                <select name="employment" required>
+                    <option value="">Employment Status</option>
+                    <option>Student</option>
+                    <option>Unemployed</option>
+                    <option>Employed</option>
+                </select>
+
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+            </div>
+
+            <button type="submit" class="register-btn">Register Now</button>
+
+        </form>
+
+        <p class="login-link">
+            Already have an account? <a href="/login">Login here</a>
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+
+<div class="admin-wrapper">
+
+    <aside class="sidebar">
+        <div class="logo">🌸 Women Security</div>
+
+        <ul class="nav-links">
+            <li><a href="/admin_dashboard">Dashboard</a></li>
+            <li><a href="/add_scheme">Add Scheme</a></li>
+            <li><a href="/manage_users" class="active">Manage Users</a></li>
+        </ul>
+
+        <a href="{{ url_for('admin_logout') }}" class="logout-btn">Logout</a>
+    </aside>
+
+    <main class="main-content">
+        <h1>Manage Users</h1>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.full_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.status }}</td>
+                    <td>
+                        <a href="/block_user/{{ user.id }}" class="btn-small">Block</a>
+                        <a href="/delete_user/{{ user.id }}" class="btn-small danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

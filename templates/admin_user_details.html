@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_user_details.css') }}">
+    <title>User Details</title>
+</head>
+<body>
+
+
+<body>
+
+<div class="container">
+
+<h2>👤 User Details</h2>
+
+<div class="user-card">
+{% if user %}
+    <p><b>Name:</b> {{ user.full_name }}</p>
+    <p><b>Email:</b> {{ user.email }}</p>
+    <p><b>Phone:</b> {{ user.phone }}</p>
+{% else %}
+    <p>User not found ❌</p>
+{% endif %}
+</div>
+
+<h3>📄 Applications</h3>
+
+<table>
+<tr>
+    <th>Scheme</th>
+    <th>Status</th>
+</tr>
+
+{% for app in applications %}
+<tr>
+    <td>{{ app.scheme_name }}</td>
+    <td>{{ app.application_status }}</td>
+</tr>
+{% endfor %}
+</table>
+
+</div>
+
+</body>
+</html>

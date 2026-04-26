@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body>
+
+<div class="profile-container">
+
+    <h2>💗 Account Settings</h2>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- ================= PROFILE UPDATE FORM ================= -->
+    <div class="card">
+        <h3>👤 Update Profile</h3>
+
+<form method="POST" action="/update_profile" enctype="multipart/form-data">
+            <div class="photo-section">
+                <img src="{{ url_for('static', filename='uploads/' + (user.profile_photo if user.profile_photo else 'default.png')) }}" 
+                     class="profile-pic">
+
+                <input type="file" name="profile_photo">
+            </div>
+
+            <div class="grid">
+
+                <input type="text" name="full_name" value="{{ user.full_name }}" placeholder="Full Name" required>
+
+                <input type="email" name="email" value="{{ user.email }}" placeholder="Email" required>
+
+                <input type="text" name="mobile" value="{{ user.mobile }}" placeholder="Mobile Number">
+
+                <input type="text" name="state" value="{{ user.state }}" placeholder="State">
+
+                <input type="text" name="district" value="{{ user.district }}" placeholder="District">
+
+                <input type="text" name="education" value="{{ user.education }}" placeholder="Education">
+
+                <input type="text" name="employment" value="{{ user.employment }}" placeholder="Employment Status">
+
+            </div>
+
+            <label class="toggle">
+                <input type="checkbox" name="emergency_access"
+                    {% if user.emergency_access %}checked{% endif %}>
+                Enable Emergency Access
+            </label>
+
+            <button class="btn primary">Update Profile</button>
+        </form>
+    </div>
+
+
+    <!-- ================= CHANGE PASSWORD ================= -->
+    <div class="card">
+        <h3>🔐 Change Password</h3>
+
+        <form method="POST" action="/change-password">
+
+            <input type="password" name="current_password" placeholder="Current Password" required>
+
+            <input type="password" name="new_password" placeholder="New Password" required>
+
+            <input type="password" name="confirm_password" placeholder="Confirm New Password" required>
+
+            <button class="btn warning">Change Password</button>
+        </form>
+    </div>
+
+
+    <!-- ================= DELETE ACCOUNT ================= -->
+    <div class="card danger-card">
+        <h3>⚠ Delete Account</h3>
+
+        <form method="POST" action="/delete-account"
+              onsubmit="return confirm('Are you sure you want to delete your account? This cannot be undone.');">
+
+            <button class="btn danger">Delete My Account</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+/* Container */
+.container {
+    width: 90%;
+    margin: 30px auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d63384; /* Pink heading */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff0f6; /* Light pink background */
+    box-shadow: 0 0 12px rgba(214, 51, 132, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Table Header */
+th {
+    background: linear-gradient(45deg, #ff6fa5, #ff99c8); /* Pink gradient */
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Table Cells */
+td {
+    padding: 12px;
+    border-bottom: 1px solid #f8c6d8;
+}
+
+/* Alternate Row Color */
+tr:nth-child(even) {
+    background-color: #ffe4ec;
+}
+
+/* Hover Effect */
+tr:hover {
+    background-color: #ffd6e7;
+    transition: 0.3s;
+}
+
+/* Action Links */
+td a {
+    text-decoration: none;
+    margin: 0 5px;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+/* Buttons Styling */
+td a:nth-child(1) {
+    background-color: #ffb3c6;
+    color: #800040;
+    font-weight: bold;
+}
+
+td a:nth-child(2) {
+    background-color: #ff80ab;
+    color: white;
+    font-weight: bold;
+}
+
+td a:nth-child(3) {
+    background-color: #ff4d88;
+    color: white;
+    font-weight: bold;
+}
+
+td a:nth-child(4) {
+    background-color: #cc0052;
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

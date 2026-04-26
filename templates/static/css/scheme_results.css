@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9ccf, #ff4da6);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.page-title {
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Scheme Card */
+.scheme-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(255, 77, 166, 0.35);
+    transition: 0.3s ease;
+}
+
+.scheme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 20, 147, 0.45);
+}
+
+.scheme-card h3 {
+    margin-top: 0;
+    color: #e60073;
+    font-size: 22px;
+}
+
+.scheme-card p {
+    color: #555;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+/* Apply Button */
+.apply-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background: #ff4da6;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.apply-btn:hover {
+    background: #cc0066;
+    transform: scale(1.05);
+}
+
+/* No Scheme Found */
+.no-result {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-top: 40px;
+}

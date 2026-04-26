@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apply for {{ scheme.scheme_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/apply_form.css') }}">
+</head>
+<body>
+<div class="form-container">
+    <div class="form-card">
+        <h2>Apply for {{ scheme.scheme_name }}</h2>
+        <p class="quote">"Empowering women through government support programs."</p>
+
+        <form method="POST" action="{{ url_for('submit_application') }}" enctype="multipart/form-data">
+            <input type="hidden" name="scheme_id" value="{{ scheme.id }}">
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="full_name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <select name="gender">
+                    <option value="">Select Gender</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <textarea name="address" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Additional Notes</label>
+                <textarea name="notes"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Photo (JPG, PNG)</label>
+                <input type="file" name="photo" accept=".jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Aadhar (PDF, JPG, PNG)</label>
+                <input type="file" name="aadhar" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Income Certificate (Optional)</label>
+                <input type="file" name="income_certificate" accept=".pdf,.jpg,.jpeg,.png">
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+
+        <p class="helpline">📞 Scheme Helpline: {{ scheme.helpline }}</p>
+    </div>
+</div>
+</body>
+</html>

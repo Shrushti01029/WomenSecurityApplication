@@ -1,0 +1,111 @@
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background: #fff5f8;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(214, 51, 132, 0.2);
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+/* Header */
+th {
+    background: linear-gradient(45deg, #ff6fa5, #ff99c8);
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Table cells */
+td {
+    padding: 12px;
+    border-bottom: 1px solid #f8c6d8;
+}
+
+/* Alternate rows */
+tr:nth-child(even) {
+    background-color: #ffe4ec;
+}
+
+/* Hover effect */
+tr:hover {
+    background-color: #ffd6e7;
+    transition: 0.3s;
+}
+
+/* Status colors */
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.approved {
+    color: green;
+    font-weight: bold;
+}
+
+.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+/* 🔥 FIXED LINKS (NO BLUE COLOR) */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    padding: 8px 15px;
+    background: linear-gradient(45deg, #ff6fa5, #ff99c8);
+    color: #b3005f; /* dark pink */
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+/* Remove purple/blue visited color */
+a:visited {
+    color: #b3005f;
+}
+
+/* Hover effect */
+a:hover {
+    background: linear-gradient(45deg, #ff4d88, #ff80ab);
+    color: #800040;
+}
+
+/* Active click */
+a:active {
+    color: #660033;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

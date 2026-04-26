@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/document_vault.css') }}">
+
+<div class="vault-container">
+
+<h1>🔐 Secure Document Vault</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="flash-message">
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div class="upload-card">
+<form action="/upload_document" method="POST" enctype="multipart/form-data">
+
+<input type="file" name="file" id="fileInput" required>
+<small>Max size: 5MB | Allowed: PNG, JPG, PDF</small>
+
+<select name="category" required>
+<option value="">Select Category</option>
+<option>Identity Proof</option>
+<option>Medical Records</option>
+<option>Legal Documents</option>
+<option>Incident Evidence</option>
+<option>Other</option>
+</select>
+
+<label>
+<input type="checkbox" name="emergency">
+Mark as Emergency Accessible
+</label>
+
+<img id="preview" style="display:none; width:120px; margin-top:10px;">
+
+<button type="submit">Upload</button>
+</form>
+</div>
+
+<div class="doc-grid">
+{% for doc in documents %}
+<div class="doc-card">
+
+<h4>{{ doc.file_name }}</h4>
+<p>{{ doc.category }}</p>
+<p>{{ doc.uploaded_at }}</p>
+
+{% if doc.emergency_access %}
+<span class="emergency-badge">Emergency Access</span>
+{% endif %}
+
+<div class="doc-buttons">
+<a href="/download/{{ doc.stored_name }}">
+<button>Download</button>
+</a>
+
+<a href="/delete_document/{{ doc.id }}">
+<button class="delete-btn">Delete</button>
+</a>
+</div>
+
+</div>
+{% endfor %}
+</div>
+
+</div>
+
+<script>
+document.getElementById("fileInput").onchange = function (evt) {
+const [file] = this.files;
+if (file && file.type.startsWith("image/")) {
+let preview = document.getElementById("preview");
+preview.src = URL.createObjectURL(file);
+preview.style.display = "block";
+}
+};
+</script>
+
+{% endblock %}

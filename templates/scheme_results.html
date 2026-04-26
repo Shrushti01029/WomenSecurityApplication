@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eligible Government Schemes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scheme_search.css') }}">
+</head>
+<body>
+<div class="search-container">
+    <div class="search-card">
+        <h2>Eligible Government Schemes</h2>
+        <p class="quote">"Explore opportunities designed to empower and support women."</p>
+
+        <h3>Available Schemes</h3>
+        {% if schemes %}
+            {% for scheme in schemes %}
+            <div class="scheme-card">
+                <h4>{{ scheme.scheme_name }}</h4>
+                <p>{{ scheme.description }}</p>
+                <a href="{{ url_for('apply_form', scheme_id=scheme.id) }}">
+                    <button class="apply-btn">Apply</button>
+                </a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No eligible schemes available at this time.</p>
+        {% endif %}
+
+        <p class="helpline">📞 Scheme Assistance Helpline: 1800-123-4567</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+body {
+    background: linear-gradient(135deg, #fff0f6, #ffe4ec);
+}
+
+.vault-container {
+    padding: 40px 60px;
+}
+
+.vault-container h1 {
+    text-align: center;
+    color: #c2185b;
+}
+
+/* Upload Card */
+.upload-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(233,30,99,0.2);
+    margin-bottom: 40px;
+}
+
+.upload-card form {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.upload-card input,
+.upload-card select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.upload-card button {
+    background: linear-gradient(135deg, #ff66a3, #c2185b);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Documents Grid */
+.doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.doc-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(233,30,99,0.15);
+}
+
+.emergency-badge {
+    display: inline-block;
+    background: #ff1744;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.doc-buttons {
+    margin-top: 15px;
+}
+
+.doc-buttons button {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+    background: #e91e63;
+    color: white;
+}
+
+.delete-btn {
+    background: #b71c1c;
+}
+
+.flash-message {
+    background: #ffd6e8;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: #880e4f;
+}

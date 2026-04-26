@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_users.css') }}">
+
+<div class="container">
+
+    <h2>👤 Registered Users</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.full_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>
+           <a href="{{ url_for('admin_user_details', user_id=user.id) }}" class="view-btn">
+    View
+</a>
+
+                <a href="{{ url_for('delete_user_account', id=user.id) }}"
+                   class="delete-btn"
+                   onclick="return confirm('Delete this user?')">
+                   Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

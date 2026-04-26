@@ -1,0 +1,117 @@
+/* ================= GLOBAL STYLES ================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9ccf, #ff4da6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 0;
+}
+
+/* ================= FORM CONTAINER ================= */
+.form-container {
+    width: 95%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ================= FORM CARD ================= */
+.form-card {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 77, 166, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 20, 147, 0.45);
+}
+
+/* ================= HEADING ================= */
+.form-card h2 {
+    text-align: center;
+    color: #e60073;
+    margin-bottom: 15px;
+}
+
+.quote {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* ================= FORM GROUP ================= */
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #ffc1e3;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #ff4da6;
+    box-shadow: 0 0 8px rgba(255, 77, 166, 0.4);
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+/* ================= BUTTON ================= */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff4da6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #cc0066;
+    transform: scale(1.05);
+}
+
+/* ================= HELPLINE ================= */
+.helpline {
+    text-align: center;
+    font-size: 13px;
+    color: #444;
+    margin-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+    .form-card {
+        padding: 25px 20px;
+    }
+
+    input, textarea, select, .submit-btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+}

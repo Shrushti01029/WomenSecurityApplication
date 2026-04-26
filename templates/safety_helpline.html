@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/safety_helpline.css') }}">
+
+<div class="helpline-container">
+
+    <h1>🚨 Safety & Protection Center</h1>
+
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        <a href="#helplines">Safety Helplines</a>
+        <a href="#tips">Safety Tips</a>
+        <a href="#fighting">Fighting Tips</a>
+    </div>
+
+    <!-- ================= HELPLINES ================= -->
+    <section id="helplines">
+        <h2>📞 Emergency Helplines</h2>
+
+        {% for cat in categories %}
+            <h3 class="category-title">{{ cat.category }}</h3>
+
+            <div class="helpline-grid">
+                {% for h in helplines %}
+                    {% if h.category == cat.category %}
+                    <div class="helpline-card">
+                        <h4>{{ h.name }}</h4>
+                        <p>{{ h.description }}</p>
+                        <button class="call-btn" onclick="makeCall('{{ h.phone }}')">
+    📞 Call {{ h.phone }}
+</button>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </section>
+
+    <!-- ================= SAFETY TIPS ================= -->
+    <section id="tips">
+        <h2>💡 Situation-Based Safety Guidance</h2>
+
+        {% for condition in conditions %}
+            <div class="tip-box">
+                <h3>{{ condition.condition_name }}</h3>
+                <ul>
+                    {% for t in tips %}
+                        {% if t.condition_name == condition.condition_name %}
+                        <li>{{ t.tip }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </section>
+
+    <!-- ================= EMERGENCY GUIDE ================= -->
+    <section class="emergency-guide">
+        <h2>⚠ What To Do In Emergency</h2>
+        <div class="guide-content">
+            <ul>
+                <li>Stay calm and assess your surroundings.</li>
+                <li>Move to a safe and populated area.</li>
+                <li>Call the appropriate emergency helpline immediately.</li>
+                <li>Share your live location with trusted contacts.</li>
+                <li>Collect evidence (photo/video) if safe.</li>
+                <li>Report through Incident Reporting System.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ================= SELF DEFENSE ================= -->
+    <section id="fighting">
+        <h2>🥋 Self-Defense Awareness</h2>
+
+        <div class="fighting-gallery">
+            <img src="https://pbs.twimg.com/media/A_DuWMrCIAAMGsl.jpg" alt="Karate Training">
+            <img src="https://www.shutterstock.com/image-vector/selfdefense-techniques-women-who-have-260nw-2133098097.jpg" alt="Martial Arts">
+            <img src="https://thumbs.dreamstime.com/b/self-defense-woman-infographics-teaching-vector-poster-education-to-attack-defeat-criminal-thief-illustration-tips-advice-323870418.jpg" alt="Self Defense">
+        </div>
+
+        <div class="fighting-text">
+            <p>
+                Learning basic self-defense techniques improves confidence, awareness, and the ability to react quickly in threatening situations.
+                Consider enrolling in certified self-defense or martial arts training programs.
+            </p>
+        </div>
+    </section>
+
+</div>
+
+<script>
+function makeCall(number){
+    window.location.href = "tel:" + number;
+}
+</script>
+
+{% endblock %}

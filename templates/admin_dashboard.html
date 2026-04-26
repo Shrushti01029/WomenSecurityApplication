@@ -1,0 +1,130 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+
+<div class="dashboard-container">
+
+    <!-- HEADER -->
+    <div class="dashboard-header">
+        <h1>🌸 Admin Dashboard</h1>
+        <p>Manage system efficiently</p>
+    </div>
+
+    <!-- TOP STATS -->
+    <div class="stats-container">
+
+        <div class="stat-card pink">
+            <h3>Total Users</h3>
+            <p>{{ users }}</p>
+        </div>
+
+        <div class="stat-card purple">
+            <h3>Total Schemes</h3>
+            <p>{{ schemes }}</p>
+        </div>
+
+        <div class="stat-card red">
+            <h3>SOS Alerts</h3>
+            <p>{{ sos }}</p>
+        </div>
+
+        <div class="stat-card blue">
+            <h3>Feedback</h3>
+            <p>{{ feedback }}</p>
+        </div>
+
+        <div class="stat-card orange">
+            <h3>Total Applications</h3>
+            <p>{{ total_applications }}</p>
+        </div>
+
+        <div class="stat-card green">
+            <h3>Pending</h3>
+            <p>{{ pending }}</p>
+        </div>
+
+        <div class="stat-card dark">
+            <h3>Approved</h3>
+            <p>{{ approved }}</p>
+        </div>
+
+    </div>
+
+    <!-- ✅ MAIN SECTIONS (FIXED WRAPPER) -->
+    <div class="dashboard-sections">
+
+        <div class="section-card">
+            <h2>📋 Scheme Management</h2>
+            <ul>
+                <li>Add / Update / Delete Schemes</li>
+                <li>Manage Government Schemes</li>
+            </ul>
+            <a href="{{ url_for('manage_schemes') }}" class="section-btn">Manage →</a>
+        </div>
+
+        <div class="section-card">
+            <h2>📄 Applications</h2>
+            <ul>
+                <li>View Applications</li>
+                <li>Approve / Reject</li>
+            </ul>
+            <a href="{{ url_for('admin_applications') }}" class="section-btn">View Applications  →</a>
+        </div>
+
+        <div class="section-card">
+            <h2>👤 Users Management</h2>
+            <ul>
+                <li>View Users</li>
+                <li>Delete Fake Accounts</li>
+            </ul>
+            <a href="{{ url_for('admin_users_list') }}" class="section-btn">Manage →</a>
+        </div>
+
+        <div class="section-card">
+    <h2>🚨 SOS Alerts</h2>
+    <ul>
+        <li>View Emergency Alerts</li>
+        <li>Track User Location</li>
+        <li>Respond Quickly</li>
+    </ul>
+
+    <a href="{{ url_for('admin_sos_alerts') }}" class="section-btn">
+        View Alerts →
+    </a>
+</div>
+        
+
+        
+<div class="section-card">
+    <h2>💬 View Incidents </h2>
+
+    <ul>
+        <li>Incident Reports</li>
+        <li> View  Incident status </li>
+
+    </ul>
+
+    <a href="/admin/incidents" class="section-btn">
+        View Incidents →
+    </a>
+</div>
+
+
+    <!-- SUMMARY -->
+    <div class="applications-summary">
+    <h2>📌 Top Scheme Applications</h2>
+
+    <div class="scheme-box">
+        <p><a href="/admin/scheme/1">Women Entrepreneurship Scheme</a></p>
+        <p><a href="/admin/scheme/2">Maternity Benefit Scheme</a></p>
+        <p><a href="/admin/scheme/3">Skill Development Program</a></p>
+        <p><a href="/admin/scheme/4">Widow Pension Scheme</a></p>
+        <p><a href="/admin/scheme/5">Women Safety Helpline Scheme</a></p>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

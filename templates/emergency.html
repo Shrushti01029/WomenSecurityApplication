@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SafeShe Emergency Center</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/emergency.css') }}">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+<header>
+    <h1>🌸 SafeShe Emergency Support Center</h1>
+    <nav>
+        <button onclick="showSection('sos')">SOS</button>
+        <button onclick="showSection('contacts')">Contacts</button>
+        <button onclick="showSection('tools')">Safety Tools</button>
+        <button onclick="showSection('tracking')">Live Tracking</button>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- SOS SECTION -->
+    <div id="sos" class="section">
+        <div class="sos-card">
+            <h2>🚨 Emergency Help</h2>
+            <p>Click SOS to notify your emergency contacts.</p>
+            <button class="location-btn" onclick="prepareSOS()">📌 PREPARE SOS MESSAGE</button>
+            <div id="sosBox"></div>
+                        <button class="panic-btn" onclick="sendSOS()" id="sendSOSBtn">🚨 SEND SOS ALERT</button>
+
+            <button class="location-btn" onclick="shareLocation()">📍 SHARE MY LOCATION</button>
+            <div id="locationBox"></div>
+        </div>
+    </div>
+
+    <!-- CONTACTS SECTION -->
+    <div id="contacts" class="section">
+        <h2>Emergency Contacts</h2>
+        <div class="add-contact">
+    <form action="/add_contact" method="POST">
+        <input name="name" placeholder="Contact Name" required>
+        <input name="phone" placeholder="Phone Number" required>
+        <button type="submit">Add Contact</button>
+    </form>
+</div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+            {% for c in contacts %}
+            <tr>
+                <td>{{c.name}}</td>
+                <td>{{c.phone}}</td>
+                <td>
+                    <a href="tel:{{c.phone}}" class="call">Call</a>
+                    <a href="sms:{{c.phone}}" class="sms">SMS</a>
+                    <a href="https://wa.me/{{c.phone}}" target="_blank" class="whatsapp">WhatsApp</a>
+                    <button onclick="deleteContact({{c.id}})" class="delete">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+
+
+
+    <!-- SAFETY TOOLS -->
+    <div id="tools" class="section">
+
+<h2>🎤 Voice SOS Evidence</h2>
+
+<div class="tools">
+
+<button onclick="enableMic()">🎤 Enable Mic</button>
+
+<button onclick="startVoiceRecording()">🔴 Start Recording</button>
+
+<button onclick="stopVoiceRecording()">⏹ Stop Recording</button>
+
+<button onclick="playRecording()">▶ Play Recording</button>
+
+<button onclick="deleteRecording()">🗑 Delete</button>
+
+<button onclick="shareRecording()">📤 Share SOS</button>
+
+<button onclick="findPolice()">🚓 Nearby Police Stations</button>
+
+</div>
+
+<p id="recordStatus"></p>
+
+<p id="recordTimer"></p>
+
+<audio id="audioPlayback" controls style="display:none;"></audio>
+
+</div>
+
+
+
+    <!-- LIVE TRACKING -->
+    <div id="tracking" class="section">
+
+<h2>📍 Live Location Tracking</h2>
+
+<button class="track-btn" onclick="startTracking()">Start Tracking</button>
+<button class="stop-btn" onclick="stopTracking()">Stop Tracking</button>
+
+<div id="map"></div>
+
+<div id="trackingInfo"></div>
+
+<div id="shareTracking"></div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/emergency.js') }}"></script>
+<script>
+function showSection(id){
+    let sections=document.querySelectorAll(".section");
+    sections.forEach(sec=>sec.style.display="none");
+    document.getElementById(id).style.display="block";
+}
+showSection("sos");
+</script>
+
+
+<script>
+function deleteContact(id){
+    fetch("/delete_contact/" + id, {
+        method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        location.reload();
+    })
+    .catch(error => {
+        console.log(error);
+        alert("Error deleting contact");
+    });
+}
+</script>
+</body>
+</html>

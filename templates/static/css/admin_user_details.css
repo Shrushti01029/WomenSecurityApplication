@@ -1,0 +1,97 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffe6f0, #fff5f9);
+    margin: 0;
+    padding: 0;
+}
+
+/* CONTAINER */
+.container {
+    width: 85%;
+    margin: 40px auto;
+}
+
+/* HEADINGS */
+h2 {
+    text-align: center;
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #c2185b;
+    margin-top: 30px;
+}
+
+/* USER CARD */
+.user-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.user-card p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: #444;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+
+/* TABLE HEAD */
+table th {
+    background: #ff4d88;
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+/* TABLE BODY */
+table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* ROW HOVER */
+table tr:hover {
+    background: #fff0f5;
+}
+
+/* STATUS COLORS */
+td:nth-child(2) {
+    font-weight: bold;
+}
+
+td:nth-child(2):contains("Approved") {
+    color: green;
+}
+
+td:nth-child(2):contains("Pending") {
+    color: orange;
+}
+
+td:nth-child(2):contains("Rejected") {
+    color: red;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}

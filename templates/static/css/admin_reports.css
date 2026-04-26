@@ -1,0 +1,41 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff0f5;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+h1 {
+    color: #ff4da6;
+    margin-bottom: 30px;
+}
+
+/* CHART GRID */
+.charts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* CHART BOX */
+.chart-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.chart-box h3 {
+    color: #ff4da6;
+    margin-bottom: 15px;
+}
+
+/* FULL WIDTH */
+.full-width {
+    grid-column: span 2;
+}
